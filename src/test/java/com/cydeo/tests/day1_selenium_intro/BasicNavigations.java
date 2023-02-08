@@ -5,76 +5,87 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BasicNavigations {
-
     public static void main(String[] args) throws InterruptedException {
 
-        //1- Set up the "browser driver"
+//1- set-up browser driver:
         WebDriverManager.chromedriver().setup();
-        //2- Create instance of the Selenium WebDriver
-        //This is the line opening an empty browser
-        WebDriver driver = new ChromeDriver();
 
-        //This line will maximize the browser size
-        driver.manage().window().maximize();
 
-        //3- Go to "https://www.tesla.com"
+//2- create the instance of selenium Web-driver:
+       // this is the line that is opening an empty browser
+        WebDriver driver=new ChromeDriver();
+
+
+// this line will maximize the browser size:
+       driver.manage().window().maximize();
+       //driver.manage().window().fullscreen(); //for macbook
+
+//3- go to the "https://www.tesla.com"
         driver.get("https://www.tesla.com");
 
-        //get the title of the page
-        String currentTitle = driver.getTitle();
-        System.out.println("currentTitle = " + currentTitle);
+// get the title of the page:
+        // System.out.println("driver.getTitle() = " + driver.getTitle());
+        String currentTitle=driver.getTitle();
+        System.out.println("currentTitle = " + currentTitle);// tesla page title
 
-        String currentURL =  driver.getCurrentUrl();
+        // get the current URL:
+        String currentURL=driver.getCurrentUrl();
         System.out.println("currentURL = " + currentURL);
 
-        //Stop code execution for 3 seconds
-        Thread.sleep(3000);
 
-        // use selenium to navigate back
+
+
+// stops code execution for 3 seconds:
+   Thread.sleep(3000);
+
+
+//4- use selenium to navigate back:
         driver.navigate().back();
 
-        //Stop code execution for 3 seconds
+
+
+// stops code execution for 3 seconds:
         Thread.sleep(3000);
 
-        // use selenium to navigate forward
+// use selenium to navigate forward:
         driver.navigate().forward();
 
-        //Stop code execution for 3 seconds
+
+// stops code execution for 3 seconds:
         Thread.sleep(3000);
 
-        // use selenium to navigate refresh
+//  use selenium to navigate refresh:
         driver.navigate().refresh();
 
-        //Stop code execution for 3 seconds
+
+// stops code execution for 3 seconds:
         Thread.sleep(3000);
 
-        // use navigate().to():
-        driver.navigate().to("https://www.google.com");
-
-        //get the current title after getting the google page
-        currentTitle = driver.getTitle();
 
 
-        //System.out.println("driver.getTitle() = " + driver.getTitle());
+//  use selenium to navigate() to() method:
+    driver.navigate().to("https://www.google.com");
 
-        System.out.println("currentTitle = " + currentTitle);
+// get the current title after getting google page:
+       // System.out.println("driver.getTitle() = " + driver.getTitle());
+    currentTitle=driver.getTitle();
+        System.out.println("currentTitle = " + currentTitle);  // google page title
 
-        // Get the current URL using Selenium
-        currentURL = driver.getCurrentUrl();
-
+// get the current URL:
+       currentURL=driver.getCurrentUrl();
         System.out.println("currentURL = " + currentURL);
 
-
-        // this will close the currently opened window
+// this will  close the currently opened tab/browser:
         driver.close();
 
-        // this will close all of the opened windows
+// this will close all opened windows:
         driver.quit();
 
 
 
 
+
+
+
     }
-
-
 }
